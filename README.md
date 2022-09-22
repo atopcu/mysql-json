@@ -54,6 +54,7 @@ Condition Objects has to be build with this schema :
 {
     column1: {operator:'=', value:'test'},
     column2: {operator:'>', value:29},
+    column3: {operator:'>', value:'`column1`'},
 }
 ```
 
@@ -111,9 +112,9 @@ Condition Objects has to be build with this schema :
 ```
 
 ```javascript
-  // Delete any documents where login=root
+  // Delete any documents where firstname=lastname
   mysqlJson.delete('myTable', {
-    login:{operator:'=', value:'root'}
+    firstname:{operator:'=', value:'`lastname`'}
   }, function(err, response) {
     if (err) throw err;
     console.log(response);
